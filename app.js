@@ -5,8 +5,10 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 // define path of each routes
-// const registerRoutes = require("./api/routes/registerRoutes");
-
+const testRoutes = require("./api/routes/testRoutes");
+const feedRoutes = require("./api/routes/feedRoutes");
+const foodRoutes = require("./api/routes/foodLevelRoutes");
+const timerRoutes = require("./api/routes/timerRoutes");
 
 // connect to mongoDB
 // username is chompusama and password is digio
@@ -36,8 +38,10 @@ app.use((req, res, next) => {
 });
 
 // Routes which should handle requests
-// app.use("/register", registerRoutes);
-
+app.use("/test", testRoutes);
+app.use("/feed", feedRoutes);
+app.use("/food", foodRoutes);
+app.use("/timer", timerRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
